@@ -17,7 +17,7 @@ class ServerlessPluginDisableEvents {
     const functions = this.serverless.service.functions;
     for (const key in functions) {
       if (functions.hasOwnProperty(key) && shouldDisable(options, key)) {
-        this.serverless.cli.log(`${LOGLABEL} ${key} events DISABLED`);
+        this.serverless.cli.log(`${LOGLABEL} Events DISABLED for function ${key}`);
         this.serverless.service.functions[key].events = [];
       }
     }
