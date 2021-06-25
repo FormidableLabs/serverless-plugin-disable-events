@@ -7,7 +7,7 @@ serverless-plugin-disable-events
 A serverless plugin for selectively disabling events.
 
 The lack of YAML conditionals makes it difficult to disable events based on stage, env vars, or other conditions.
-Developers often have to resort to complicated YAML anchor gymnastics to disable function events in unqanted environments.
+Developers often have to resort to complicated YAML anchor gymnastics to disable function events in unsupported environments.
 
 This plugin allows you to disable events based on a boolean value for all functions, or selected functions.
 
@@ -30,8 +30,9 @@ plugins:
   - serverless-plugin-disable-events
 
 custom:
-  my-function-name: true
-  my-other-function: ${env:DISABLE_EVENTS}
+  disableEvents:
+    my-function-name: true
+    my-other-function: ${env:DISABLE_EVENTS}
 
 functions:
   my-function-name: ...
